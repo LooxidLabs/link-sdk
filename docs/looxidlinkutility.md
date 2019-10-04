@@ -4,7 +4,7 @@ The LooxidLinkUtility provides several utility functions to help you leverage yo
 ```csharp
 MindIndex mindIndex = LooxidLinkData.GetMindIndexData();
 
-// attention 값을 0~1 범위로 scaling 후 리턴
+// Returns the attention values after min-max scaling them between 0 and 1.
 double attention = LooxidLinkUtlity.Scale(LooxidLink.MIND_INDEX_SCALE_MIN, LooxidLink.MIND_INDEX_SCALE_MAX, 0.0, 1.0, mindIndex.attention);
 ```
 

@@ -3,4 +3,3 @@
 - [**LooxidLinkData**](looxidlinkdata.md)
 - [**LooxidLinkUtility**](looxidlinkutility.md)
 - [**SDK Examples**](sdk-examples.md)
-- [**Changelog**](#)
