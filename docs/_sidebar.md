@@ -1,5 +1,7 @@
-- [**Getting Started**](getting-started.md)
+- [**Getting started**](getting-started.md)
 - [**LooxidLinkManager**](looxidlinkmanager.md)
 - [**LooxidLinkData**](looxidlinkdata.md)
 - [**LooxidLinkUtility**](looxidlinkutility.md)
-- [**SDK Examples**](sdk-examples.md)
+- [**SDK examples**](sdk-examples.md)
+---
+- [**Go to Looxid Link website** :rocket:](//looxidlabs.com/looxidlink)
