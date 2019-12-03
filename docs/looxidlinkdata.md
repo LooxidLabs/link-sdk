@@ -1,6 +1,6 @@
 # LooxidLinkData
 
-The Looxid Link SDK provides biometric data including the raw signal information for the EEG sensors, the EEG feature index, and the mind index in real time. In addition to the real time information, the data from the last few seconds is also provided so you can utilize it for visualization and other calculations.
+Looxid Link SDK provides biometric data including the raw signal information for the EEG sensors, the EEG feature index, and the mind index in real time. In addition to the real time information, the data from the last few seconds is also provided so you can utilize it for visualization and other calculations.
 
 ## LooxidLinkData: Method Summary
 | Type | Method and Description |
