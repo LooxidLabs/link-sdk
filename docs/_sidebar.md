@@ -1,4 +1,5 @@
 - [**Getting started**](getting-started.md)
+- [**Looxid Link Core**](looxidlinkcore.md)
 - [**LooxidLinkManager**](looxidlinkmanager.md)
 - [**LooxidLinkData**](looxidlinkdata.md)
 - [**LooxidLinkUtility**](looxidlinkutility.md)
