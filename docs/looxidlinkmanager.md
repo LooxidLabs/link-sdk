@@ -46,8 +46,8 @@ void OnLinkHubDisconnected()
 // Boolean
 void Update()
 {
-    if( !LooxidLinkManager.isLinkCoreConnected ) return;
-    if( !LooxidLinkManager.isLinkHubConnected ) return;
+    if( !LooxidLinkManager.Instance.isLinkCoreConnected ) return;
+    if( !LooxidLinkManager.Instance.isLinkHubConnected ) return;
 }
 ```
 
@@ -71,7 +71,7 @@ void Update()
 | OnLinkHubDisconnection | Action | A delegate that is called when connection to the Link Hub is terminated. |
 | isLinkCoreConnected | bool | Returns if the Link Core is connected. |
 | isLinkHubConnected | bool | Returns if the Link Hub is connected. |
-| OnShowSensorOffMessage | void | A delegate that is called when the 'sensor disconnected' message appears. |
-| OnHideSensorOffMessage | void | A delegate that is called when the 'sensor disconnected' message disappears. |
-| OnShowNoiseSignalMessage | void | A delegate that is called when the 'noise detected' message appears. |
-| OnHideNoiseSignalMessage | void | A delegate that is called when the 'noise detected' message disappears. |
+| OnShowSensorOffMessage | Action | A delegate that is called when the 'sensor disconnected' message appears. |
+| OnHideSensorOffMessage | Action | A delegate that is called when the 'sensor disconnected' message disappears. |
+| OnShowNoiseSignalMessage | Action | A delegate that is called when the 'noise detected' message appears. |
+| OnHideNoiseSignalMessage | Action | A delegate that is called when the 'noise detected' message disappears. |
