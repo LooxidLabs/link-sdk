@@ -1,13 +1,15 @@
 # SDK Examples
 By importing `LooxidLinkSDKExamples.unitypackage` to your Unity project, you can run some Looxid Link examples.
 
+!> These examples require Unity 2019.1 or later.
+
 ## 2D Visualizer
-This example demonstrates the usage of the APIs related to the device status, raw signal, EEG feature index, mind index, and other data provided in the SDK in 2D form. You can use this as a reference to see how you can visualize your data in the Looxid Link SDK.
+This example demonstrates the usage of the data provided by the Link SDK (e.g. device status, raw signal, EEG feature index, and mind index) in 2D form. You can use this as a reference to see how you can visualize your data in the Looxid Link SDK.
 
 ![2D Visualizer][2d-visualizer]
 
 ## 3D Visualizer
-This example demonstrates the usage of the APIs in 3D form. You can see the respective graphs for the data of each sensor, as well as the particle effect changes that are changing with the brain’s activity.
+This example demonstrates the usage of the data provided by the Link SDK in 3D form. You can see the respective graphs for the data of each sensor, as well as the particle effect changes that are changing with the brain’s activity.
 
 ![3D Visualizer][3d-visualizer]
 

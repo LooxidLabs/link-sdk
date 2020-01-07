@@ -3,8 +3,10 @@
 
 *:rocket: Current version: v0.1.0*
 
-Looxid Link SDK allows the user to receive biometric signals in real time from Looxid Link and use them to create VR applications.
+Looxid Link SDK allows you to receive biometric signals in real time from Looxid Link and use them to create VR applications.
 In order to use Looxid Link Unity SDK, you must have an HTC VIVE or VIVE Pro connected to your computer with both Looxid Link Core and SteamVR installed.
+
+!> This SDK requires Unity 2019.1 or later.
 
 > **Looxid Link Unity SDK**<br>
 > Fork, clone, or download Looxid Link SDK from GitHub.<br>
