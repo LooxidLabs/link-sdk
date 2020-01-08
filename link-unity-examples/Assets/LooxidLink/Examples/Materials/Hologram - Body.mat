@@ -1,0 +1,210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hologram - Body
+  m_Shader: {fileID: 4800000, guid: 29fed12d8547e354e90be987488147c1, type: 3}
+  m_ShaderKeywords: DISTORTION_OFF NOISE_OFF RIM_ON SCANLINES_OFF _SCENEOCCLUDED_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FalloffTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlickerTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Goo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GooN:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainBump:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _Alpha: 0.5
+    - _Brightness: 2
+    - _BumpScale: 1
+    - _ColorMask: 15
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _Darken: 0
+    - _Deform: 0
+    - _Density: 8
+    - _DetailNormalMapScale: 1
+    - _DiffuseThreshold: 0.1
+    - _DstBlend: 0
+    - _EnableExternalAlpha: 0
+    - _Exposure: 1
+    - _FlickerIntensity: 2
+    - _FlickerSpeed: 1
+    - _FlowFac: 1
+    - _Focus: -100
+    - _Fold: 3
+    - _GlitchIntensity: 1
+    - _GlitchSpeed: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GlowSpeed: 5
+    - _GlowTiling: 0.1
+    - _IntensityMultiplier: 1
+    - _InvFade: 3
+    - _JitterIntensity: 0.08
+    - _LightTweakX: 0
+    - _LightTweakY: 0
+    - _LightTweakZ: 0
+    - _LitOutlineThickness: 0.1
+    - _Metallic: 0
+    - _Mode: 0
+    - _NormalJitterIntensity: 0.015
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _PinchDeform: 0
+    - _Rim: 1.3
+    - _RimEffect: 1
+    - _RimPower: 1
+    - _RimStrength: 1
+    - _Rotation: 0
+    - _Rough: 0.1
+    - _ScanLineDistance: 0.2
+    - _ScanSpeed: 1
+    - _ScanTiling: 0.05
+    - _SceneOccluded: 1
+    - _Scl: 2
+    - _SeeThru: 0.08
+    - _Shininess: 0.34
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Strength: 1
+    - _TimeOffset: 0
+    - _UVSec: 0
+    - _UnlitOutlineThickness: 0.4
+    - _UseUIAlphaClip: 0
+    - _WindQuality: 0
+    - _ZWrite: 1
+    - g_flCornerAdjust: 0.5
+    - g_flOutlineWidth: 0.005
+    m_Colors:
+    - _Color: {r: 0, g: 0.91724133, b: 1, a: 0.5882353}
+    - _ColorA: {r: 1, g: 0.9724138, b: 0, a: 1}
+    - _ColorB: {r: 0.90344834, g: 1, b: 0, a: 1}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
+    - _DistortionSettings: {r: 0, g: 0, b: 0, a: 0}
+    - _EmisColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flow: {r: 0, g: 1, b: 0, a: -1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _JitterDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _MainColor: {r: 0, g: 1, b: 0.8758622, a: 1}
+    - _NoiseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _NoiseFrequency: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseSettings: {r: 0.1, g: 0.1, b: 0.1, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0.37254903, b: 0.50980395, a: 0.27450982}
+    - _ScanLineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ScanLineSettings: {r: 1, g: 0.2, b: 0, a: 0}
+    - _SceneTint: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 0}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _TintColor: {r: 0.3260163, g: 0.8216113, b: 0.98529404, a: 0.071}
+    - _UnlitColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - g_vOutlineColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
