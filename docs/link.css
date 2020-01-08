@@ -3,3 +3,6 @@ hr {
   border-top: 1px solid #ddd;
   margin: 12px
 }
+.markdown-section p.warn {
+  background:rgba(124,64,255,.1)
+}
