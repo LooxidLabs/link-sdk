@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using Valve.VR.InteractionSystem;
 
 namespace Looxid.Link
 {
@@ -22,10 +21,6 @@ namespace Looxid.Link
 
     public class _InteractionPlayGround : MonoBehaviour
     {
-        public Valve.VR.SteamVR_Action_Boolean menuButtonAction = Valve.VR.SteamVR_Input.GetAction<Valve.VR.SteamVR_Action_Boolean>("InteractionMenu");
-
-        private Player player = null;
-
         public _2DVisualizer visualizer;
 
         [Header("Cube")]
@@ -70,15 +65,6 @@ namespace Looxid.Link
                 CubeList.Add(CubeTransform.GetChild(i).gameObject);
             }
 
-            player = Player.instance;
-
-            if (player == null)
-            {
-                Debug.LogError("<b>[SteamVR Interaction]</b> No Player instance found in map.");
-                Destroy(this.gameObject);
-                return;
-            }
-
             powerData = new List<float>();
 
             materialB.DisableKeyword("_EMISSION");
@@ -112,7 +98,6 @@ namespace Looxid.Link
             LooxidLinkData.OnReceiveEEGFeatureIndexes -= OnReceiveEEGFeatureIndexes;
         }
 
-        // Data Subscription
         void OnReceiveEEGSensorStatus(EEGSensor sensorStatusData)
         {
             this.sensorStatusData = sensorStatusData;
@@ -248,28 +233,6 @@ namespace Looxid.Link
             powerData.Add(value);
         }
 
-        void Update()
-        {
-            foreach (Hand hand in player.hands)
-            {
-                int randomRot = Random.Range(0, 360);
-                int randomCube = Random.Range(0, CubeTypes.Length - 1);
-
-                if (IsEligibleForTeleport(hand))
-                {
-                    bool isMenuButtonClick = menuButtonAction.GetStateUp(hand.handType);
-
-                    if (isMenuButtonClick)
-                    {
-                        GameObject boxClone = Instantiate(CubeTypes[randomCube], new Vector3(Random.Range(-10f, 10f), Random.Range(1f, 10f), Random.Range(-10f, 10f)),
-                            Quaternion.Euler(new Vector3(randomRot, randomRot, randomRot)));
-                        boxClone.transform.parent = CubeTransform;
-                        CubeList.Add(boxClone);
-                    }
-                }
-            }
-        }
-
         IEnumerator SuperPower()
         {
             while (true)
@@ -328,6 +291,17 @@ namespace Looxid.Link
             }
         }
 
+        public void CreateCube()
+        {
+            int randomRot = Random.Range(0, 360);
+            int randomCube = Random.Range(0, CubeTypes.Length - 1);
+
+            GameObject boxClone = Instantiate(CubeTypes[randomCube], new Vector3(Random.Range(-10f, 10f), Random.Range(1f, 10f), Random.Range(-10f, 10f)),
+                Quaternion.Euler(new Vector3(randomRot, randomRot, randomRot)));
+            boxClone.transform.parent = CubeTransform;
+            CubeList.Add(boxClone);
+        }
+
         public void SelectData(int dataType)
         {
             selectInteraction = (InteractionData)dataType;
@@ -337,23 +311,6 @@ namespace Looxid.Link
             }
             prevPowerData = -1.0f;
             powerData.Clear();
-        }
-
-        public bool IsEligibleForTeleport(Hand hand)
-        {
-            if (hand == null)
-            {
-                return false;
-            }
-            if (!hand.gameObject.activeInHierarchy)
-            {
-                return false;
-            }
-            if (hand.hoveringInteractable != null)
-            {
-                return false;
-            }
-            return true;
         }
     }
 }

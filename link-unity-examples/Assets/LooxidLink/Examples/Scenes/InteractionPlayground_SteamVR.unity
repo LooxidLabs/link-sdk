@@ -30429,6 +30429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679016411}
   - component: {fileID: 1679016410}
+  - component: {fileID: 1679016412}
   m_Layer: 0
   m_Name: _InteractionPlayGround
   m_TagString: Untagged
@@ -30448,9 +30449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecebe1e608af9c418a6b62a48e54077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuButtonAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
   visualizer: {fileID: 1792190050}
   CubeTransform: {fileID: 155521083}
   CubeTypes:
@@ -30489,6 +30487,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679016412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679016409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6791f3b5bf7744c9fc64e94688c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButtonAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  OnMenuButtonClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1679016410}
+        m_MethodName: CreateCube
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1686000572
 GameObject:
   m_ObjectHideFlags: 0

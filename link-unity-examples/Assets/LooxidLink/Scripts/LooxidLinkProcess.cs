@@ -22,7 +22,7 @@ namespace Looxid.Link
         {
             string roamingFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
             string looxidlabsFolderPath = "looxidlabs";
-            string looxidlinkFolderPath = "LooxidLinkCore";
+            string looxidlinkFolderPath = "Looxid Link Core";
             string appLocationFileName = "app_location.txt";
 
             string roamingFile = roamingFolderPath + "\\" + looxidlabsFolderPath + "\\" + looxidlinkFolderPath + "\\" + appLocationFileName;
