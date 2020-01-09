@@ -81,10 +81,10 @@
 ![Click on Accept All and then OK.][steamvr-install-05]
 
 ## Importing Looxid Link SDK
-1. Download Looxid Link SDK from [our GitHub repository](https://github.com/looxidlabs/link-sdk).
+1. Download `LooxidLink_Unity_SDK_*.*.unitypackage` from [our GitHub repository](https://github.com/LooxidLabs/link-sdk/releases/).
 2. Open Unity and choose `Assets > Import Package > Custom Package` from the menu.
 ![Assets > Import Package > Custom Package][sdk-install-01]
-3. Select `LooxidLinkSDK_*.unitypackage` that you've downloaded and click `Open`.
+3. Select `LooxidLink_Unity_SDK_*.*.unitypackage` that you've downloaded and click `Open`.
 4. Proceed by clicking `Import`.
 ![Import LooxidLinkSDK.unitypackage to the Unity project][sdk-install-02]
 
@@ -120,4 +120,4 @@
 [steamvr-install-05]: img/steamvr-install-05.png "Click on Accept All and then OK."
 
 [sdk-install-01]: img/sdk-install-01.png "Assets > Import Package > Custom Package"
-[sdk-install-02]: img/sdk-install-02.png "Import LooxidLinkSDK.unitypackage to the Unity project."
+[sdk-install-02]: img/sdk-install-02.png "Import `LooxidLink_Unity_SDK_*.*.unitypackage` to the Unity project."
