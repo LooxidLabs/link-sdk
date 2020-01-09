@@ -217,14 +217,22 @@ namespace Looxid.Link
             if (networkManager == null)
             {
                 networkManager = gameObject.AddComponent<NetworkManager>();
+                networkManager.CreateUserData();
             }
             LooxidLinkData.Instance.Initialize();
+
             isInitialized = networkManager.Initialize();
+            if (isInitialized)
+            {
+                StartCoroutine(AutoConnection());
+                StartCoroutine(DetectSensor());
 
-            StartCoroutine(AutoConnection());
-            StartCoroutine(DetectSensor());
-
-            return true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #endregion
