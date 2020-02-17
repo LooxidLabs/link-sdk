@@ -4,5 +4,6 @@
 - [**LooxidLinkData**](looxidlinkdata.md)
 - [**LooxidLinkUtility**](looxidlinkutility.md)
 - [**SDK examples**](sdk-examples.md)
+- [**Changelog**](changelog.md)
 ---
 - [**Go to Looxid Link website** :rocket:](//looxidlabs.com/looxidlink)

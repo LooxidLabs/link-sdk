@@ -56,6 +56,7 @@ void Update()
 | Type | Method and Description |
 |------|---|
 | bool | `Initialize()`<br>Initializes the Link SDK and prepares it to receive data. Returns `True` when the initialization is successful. |
+| void | `Terminate()`<br>Terminates connection with the Link Core. Will reconnect to the Core once `Initialize()` is called again. |
 | void | `SetDebug(bool isDebug)`<br>Determines whether to print the Link SDK related debug messages in the console window or not. |
 | void | `SetDisplayDisconnectedMessage​(​bool​ isDisplay)`<br>Determines whether to show the default message provided with the SDK saying the Link is disconnected. |
 | void | `SetDisplaySensorOffMessage​(​bool​ isDisplay)`<br>Determines whether to show the default message provided with the SDK saying the sensors are not properly attached to the user's forehead. |
