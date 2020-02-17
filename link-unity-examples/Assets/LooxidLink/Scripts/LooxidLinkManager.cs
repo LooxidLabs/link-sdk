@@ -51,9 +51,6 @@ namespace Looxid.Link
         [HideInInspector]
         public bool isLinkHubConnected = false;
 
-        public int LinkCoreConnectedState = 0;
-        public int LinkHubConnectedState = 0;
-
         public static System.Action OnLinkCoreConnected;
         public static System.Action OnLinkCoreDisconnected;
         public static System.Action OnLinkHubConnected;
