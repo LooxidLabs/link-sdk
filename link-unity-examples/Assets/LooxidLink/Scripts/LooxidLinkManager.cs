@@ -152,7 +152,7 @@ namespace Looxid.Link
 
         IEnumerator DetectSensor()
         {
-            while (this.gameObject.activeSelf)
+            while (this.gameObject.activeSelf && isInitialized)
             {
                 if (isLinkHubConnected && isLinkCoreConnected && sensorStatusData != null)
                 {
@@ -211,6 +211,8 @@ namespace Looxid.Link
 
         public bool Initialize()
         {
+            if (isInitialized) return true;
+
             if (networkManager == null)
             {
                 networkManager = gameObject.AddComponent<NetworkManager>();
@@ -223,13 +225,25 @@ namespace Looxid.Link
             {
                 StartCoroutine(AutoConnection());
                 StartCoroutine(DetectSensor());
-
                 return true;
             }
             else
             {
                 return false;
             }
+        }
+
+        public void Terminate()
+        {
+            isInitialized = false;
+            if (messageUI != null) {
+                if (messageUI.gameObject != null)
+                {
+                    Destroy(messageUI.gameObject);
+                }
+                messageUI = null;
+            }
+            networkManager.DisconnectMessage();
         }
 
         #endregion
@@ -253,6 +267,8 @@ namespace Looxid.Link
 
         void OnLinkCoreStatus(LinkCoreStatus coreStatus)
         {
+            if (!isInitialized) return;
+
             if (coreStatus == LinkCoreStatus.Connected)
             {
                 HideMessage(LooxidLinkMessageType.CoreDisconnected);
@@ -266,6 +282,8 @@ namespace Looxid.Link
         }
         void OnOnLinkHubStatus(LinkHubStatus hubStatus)
         {
+            if (!isInitialized) return;
+
             if (hubStatus == LinkHubStatus.Connected)
             {
                 HideMessage(LooxidLinkMessageType.CoreDisconnected);
@@ -353,6 +371,7 @@ namespace Looxid.Link
             {
                 if (!noiseSignalMessage)
                 {
+                    networkManager.WriteLog("INFO", "Noise detected");
                     if (OnShowNoiseSignalMessage != null) OnShowNoiseSignalMessage.Invoke();
                 }
                 noiseSignalMessage = true;
@@ -361,6 +380,7 @@ namespace Looxid.Link
             {
                 if (!sensorOffMessage)
                 {
+                    networkManager.WriteLog("INFO", "Sensor disconnected");
                     if (OnShowSensorOffMessage != null) OnShowSensorOffMessage.Invoke();
                 }
                 sensorOffMessage = true;
@@ -407,6 +427,7 @@ namespace Looxid.Link
             {
                 if (noiseSignalMessage)
                 {
+                    networkManager.WriteLog("INFO", "No noise detected");
                     if (OnHideNoiseSignalMessage != null) OnHideNoiseSignalMessage.Invoke();
                 }
                 noiseSignalMessage = false;
@@ -415,6 +436,7 @@ namespace Looxid.Link
             {
                 if (sensorOffMessage)
                 {
+                    networkManager.WriteLog("INFO", "Sensor connected");
                     if (OnHideSensorOffMessage != null) OnHideSensorOffMessage.Invoke();
                 }
                 sensorOffMessage = false;
