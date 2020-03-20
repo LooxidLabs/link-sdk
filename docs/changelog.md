@@ -12,7 +12,13 @@ Release date: Jan 13, 2020
 - Initial release
 
 ## Looxid Link Core
-#### [v1.0.2](https://looxidlabs.com/looxidlink/product/looxid-link-core/)
+#### [v1.0.3](https://looxidlabs.com/looxidlink/product/looxid-link-core/)
+Release date: Mar 20, 2020
+- Improved performance of noise detection algorithm
+- Updated end-user license agreement
+- Fixed FFT data calculation bug
+
+#### [v1.0.2](https://go.aws/38xRxw0)
 Release date: Feb 17, 2020
 - Increased streaming rate of feature and mind indexes from 5Hz to 10Hz
 - Improved calculation performance of feature and mind indexes
