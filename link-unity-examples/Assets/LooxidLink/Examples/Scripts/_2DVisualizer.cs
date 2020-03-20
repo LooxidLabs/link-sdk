@@ -104,6 +104,8 @@ namespace Looxid.Link
             alpha = new LinkDataValue();
             beta = new LinkDataValue();
             gamma = new LinkDataValue();
+
+            SetTab(Tab2DVisualizer.SENSOR_STATUS);
         }
 
         void OnEnable()
@@ -304,31 +306,63 @@ namespace Looxid.Link
             }
         }
 
-        public void OnClickTabSensorStatus()
+        public void OnTabClick(int numTab)
         {
-            this.SelectTab = Tab2DVisualizer.SENSOR_STATUS;
+            SetTab((Tab2DVisualizer)numTab);
         }
-        public void OnClickTabMindIndex()
+        public void OnTabHoverEnter(int numTab)
         {
-            this.SelectTab = Tab2DVisualizer.MIND_INDEX;
+            Image TabImage = Tabs[numTab].GetComponent<Image>();
+            if (TabImage != null) TabImage.color = (Color)LooxidLinkManager.linkColor;
+
+            Text TabText = Tabs[numTab].GetComponent<Text>();
+            if (TabText != null) TabText.color = TextColor;
+
+            Tabs[numTab].SendMessage("SetNormalColor", (Color)LooxidLinkManager.linkColor);
+            Tabs[numTab].SendMessage("SetTextNormalColor", (Color)BackColor);
         }
-        public void OnClickTabFeatureIndex()
+        public void OnTabHoverExit(int numTab)
         {
-            this.SelectTab = Tab2DVisualizer.FEATURE_INDEX;
-        }
-        public void OnClickTabRawSignal()
-        {
-            this.SelectTab = Tab2DVisualizer.RAW_SIGNAL;
+            Image TabImage = Tabs[numTab].GetComponent<Image>();
+            if (TabImage != null) TabImage.color = ((Tab2DVisualizer)numTab == SelectTab) ? (Color)LooxidLinkManager.linkColor : (Color)BackColor;
+
+            Text TabText = Tabs[numTab].GetComponent<Text>();
+            if (TabText != null) TabText.color = ((Tab2DVisualizer)numTab == SelectTab) ? BackColor : TextColor;
+
+            Tabs[numTab].SendMessage("SetNormalColor", ((Tab2DVisualizer)numTab == SelectTab) ? (Color)LooxidLinkManager.linkColor : (Color)BackColor);
+            Tabs[numTab].SendMessage("SetTextNormalColor", ((Tab2DVisualizer)numTab == SelectTab) ? (Color)BackColor : (Color)TextColor);
         }
         public void OnClickLeftButton()
         {
-            if (SelectTab > 0) SelectTab--;
-            else SelectTab = (Tab2DVisualizer)System.Enum.GetValues(typeof(Tab2DVisualizer)).Length - 1;
+            Tab2DVisualizer nowTab = SelectTab;
+            if (nowTab > 0) nowTab--;
+            else nowTab = (Tab2DVisualizer)System.Enum.GetValues(typeof(Tab2DVisualizer)).Length - 1;
+            SetTab(nowTab);
         }
         public void OnClickRightButton()
         {
-            if (SelectTab < (Tab2DVisualizer)System.Enum.GetValues(typeof(Tab2DVisualizer)).Length - 1) SelectTab++;
-            else SelectTab = 0;
+            Tab2DVisualizer nowTab = SelectTab;
+            if (nowTab < (Tab2DVisualizer)System.Enum.GetValues(typeof(Tab2DVisualizer)).Length - 1) nowTab++;
+            else nowTab = 0;
+            SetTab(nowTab);
+        }
+        void SetTab(Tab2DVisualizer tab)
+        {
+            this.SelectTab = tab;
+            if (Tabs != null)
+            {
+                for (int i = 0; i < Tabs.Length; i++)
+                {
+                    Image TabImage = Tabs[i].GetComponent<Image>();
+                    if (TabImage != null) TabImage.color = ((Tab2DVisualizer)i == SelectTab) ? (Color)LooxidLinkManager.linkColor : (Color)BackColor;
+
+                    Text TabText = Tabs[i].GetComponent<Text>();
+                    if (TabText != null) TabText.color = ((Tab2DVisualizer)i == SelectTab) ? (Color)BackColor : (Color)TextColor;
+
+                    Tabs[i].SendMessage("SetNormalColor", ((Tab2DVisualizer)i == SelectTab) ? (Color)LooxidLinkManager.linkColor : (Color)BackColor);
+                    Tabs[i].SendMessage("SetTextNormalColor", ((Tab2DVisualizer)i == SelectTab) ? (Color)BackColor : (Color)TextColor);
+                }
+            }
         }
 
         void Update()
@@ -338,24 +372,6 @@ namespace Looxid.Link
                 for (int i = 0; i < Panels.Length; i++)
                 {
                     Panels[i].SetActive((Tab2DVisualizer)i == SelectTab);
-                }
-            }
-            if (Tabs != null)
-            {
-                for (int i = 0; i < Tabs.Length; i++)
-                {
-                    Image TabImage = Tabs[i].GetComponent<Image>();
-                    if (TabImage != null) TabImage.color = ((Tab2DVisualizer)i == SelectTab) ? (Color)LooxidLinkManager.linkColor : (Color)BackColor;
-
-                    Text TabText = Tabs[i].GetComponent<Text>();
-                    if (TabText != null) TabText.color = ((Tab2DVisualizer)i == SelectTab) ? BackColor : TextColor;
-
-                    LaserPointerInputItem TabInputItem = Tabs[i].GetComponent<LaserPointerInputItem>();
-                    if (TabInputItem != null)
-                    {
-                        TabInputItem.SetNormalColor(((Tab2DVisualizer)i == SelectTab) ? (Color)LooxidLinkManager.linkColor : (Color)BackColor);
-                        TabInputItem.SetTextNormalColor(((Tab2DVisualizer)i == SelectTab) ? BackColor : TextColor);
-                    }
                 }
             }
             if (ChannelToggles != null)

@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Valve.VR.Extras
 {
-    public class LaserPointerEvent : MonoBehaviour
+    public class LaserPointerSteamVR : MonoBehaviour
     {
         public SteamVR_Behaviour_Pose pose;
 

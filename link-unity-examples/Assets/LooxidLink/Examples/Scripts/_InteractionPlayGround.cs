@@ -239,54 +239,57 @@ namespace Looxid.Link
             {
                 yield return new WaitForSeconds(1.0f);
 
-                if (!sensorStatusData.IsSensorOn(EEGSensorID.AF3) && !sensorStatusData.IsSensorOn(EEGSensorID.AF4) &&
-                 !sensorStatusData.IsSensorOn(EEGSensorID.Fp1) && !sensorStatusData.IsSensorOn(EEGSensorID.Fp2) &&
-                 !sensorStatusData.IsSensorOn(EEGSensorID.AF7) && !sensorStatusData.IsSensorOn(EEGSensorID.AF8))
+                if (sensorStatusData != null)
                 {
-                    materialB.DisableKeyword("_EMISSION");
-                    materialO.DisableKeyword("_EMISSION");
-                    materialR.DisableKeyword("_EMISSION");
-                    targetGravity = -9.81f;
-                    powerData.Clear();
-                }
-                else
-                {
-                    if (prevPowerData < 0.0f)
+                    if (!sensorStatusData.IsSensorOn(EEGSensorID.AF3) && !sensorStatusData.IsSensorOn(EEGSensorID.AF4) &&
+                     !sensorStatusData.IsSensorOn(EEGSensorID.Fp1) && !sensorStatusData.IsSensorOn(EEGSensorID.Fp2) &&
+                     !sensorStatusData.IsSensorOn(EEGSensorID.AF7) && !sensorStatusData.IsSensorOn(EEGSensorID.AF8))
                     {
-                        prevPowerData = powerData.Average();
-
                         materialB.DisableKeyword("_EMISSION");
                         materialO.DisableKeyword("_EMISSION");
                         materialR.DisableKeyword("_EMISSION");
                         targetGravity = -9.81f;
+                        powerData.Clear();
                     }
                     else
                     {
-                        if (powerData.Average() > prevPowerData || powerData.Average() > 0.7f)
+                        if (prevPowerData < 0.0f)
                         {
-                            materialB.EnableKeyword("_EMISSION");
-                            materialO.EnableKeyword("_EMISSION");
-                            materialR.EnableKeyword("_EMISSION");
+                            prevPowerData = powerData.Average();
 
-                            float gravity_power = powerData.Average() * 1.5f;
-                            targetGravity = gravity_power;
-
-                            for (int i = 0; i < CubeList.Count; i++)
-                            {
-                                CubeList[i].GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f)));
-                            }
-                        }
-                        else
-                        {
                             materialB.DisableKeyword("_EMISSION");
                             materialO.DisableKeyword("_EMISSION");
                             materialR.DisableKeyword("_EMISSION");
                             targetGravity = -9.81f;
                         }
-                    }
+                        else
+                        {
+                            if (powerData.Average() > prevPowerData || powerData.Average() > 0.7f)
+                            {
+                                materialB.EnableKeyword("_EMISSION");
+                                materialO.EnableKeyword("_EMISSION");
+                                materialR.EnableKeyword("_EMISSION");
 
-                    prevPowerData = powerData.Average();
-                    powerData.Clear();
+                                float gravity_power = powerData.Average() * 1.5f;
+                                targetGravity = gravity_power;
+
+                                for (int i = 0; i < CubeList.Count; i++)
+                                {
+                                    CubeList[i].GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f)));
+                                }
+                            }
+                            else
+                            {
+                                materialB.DisableKeyword("_EMISSION");
+                                materialO.DisableKeyword("_EMISSION");
+                                materialR.DisableKeyword("_EMISSION");
+                                targetGravity = -9.81f;
+                            }
+                        }
+
+                        prevPowerData = powerData.Average();
+                        powerData.Clear();
+                    }
                 }
             }
         }

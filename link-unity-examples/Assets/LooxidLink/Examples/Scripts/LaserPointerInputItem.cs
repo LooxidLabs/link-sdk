@@ -22,14 +22,16 @@ namespace Looxid.Link
         public Color TextPressedColor = Color.white;
 
         public UnityEvent OnPointerClick;
+        public UnityEvent OnPointerIn;
+        public UnityEvent OnPointerOut;
 
         void Awake()
         {
-            LaserPointerEvent.PointerClick += PointerClick;
-            LaserPointerEvent.PointerIn += PointerIn;
-            LaserPointerEvent.PointerOut += PointerOut;
-            LaserPointerEvent.PointerDown += PointerDown;
-            LaserPointerEvent.PointerUp += PointerUp;
+            LaserPointerSteamVR.PointerClick += PointerClick;
+            LaserPointerSteamVR.PointerIn += PointerIn;
+            LaserPointerSteamVR.PointerOut += PointerOut;
+            LaserPointerSteamVR.PointerDown += PointerDown;
+            LaserPointerSteamVR.PointerUp += PointerUp;
         }
 
         void Start()
@@ -65,7 +67,7 @@ namespace Looxid.Link
         {
             if (!e.target.gameObject.Equals(this.gameObject)) return;
 
-            OnPointerClick.Invoke();
+            if (OnPointerClick != null) OnPointerClick.Invoke();
         }
 
         public void PointerIn(object sender, PointerEventArgs e)
@@ -81,6 +83,8 @@ namespace Looxid.Link
             {
                 TargetText.color = TextHighlitedColor;
             }
+
+            if (OnPointerIn != null) OnPointerIn.Invoke();
         }
 
         public void PointerOut(object sender, PointerEventArgs e)
@@ -96,6 +100,8 @@ namespace Looxid.Link
             {
                 TargetText.color = TextNormalColor;
             }
+
+            if (OnPointerOut != null) OnPointerOut.Invoke();
         }
 
         public void PointerDown(object sender, PointerEventArgs e)

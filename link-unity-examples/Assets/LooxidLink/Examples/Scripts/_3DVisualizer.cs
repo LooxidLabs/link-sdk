@@ -83,6 +83,8 @@ namespace Looxid.Link
             asymmetry = new LinkDataValue();
 
             playerPos = VRCamera.transform.position;
+
+            SetFeautreIndexTab(EEGSensorID.AF3);
         }
 
         void OnEnable()
@@ -279,21 +281,6 @@ namespace Looxid.Link
             if (HeadModeling != null) HeadModeling.localEulerAngles = new Vector3(VRCamera.eulerAngles.x, -VRCamera.eulerAngles.y + 90.0f, -VRCamera.eulerAngles.z);
             if (HeadTrackingText != null) HeadTrackingText.text = new Vector2(HeadPositionCircle.localPosition.x, HeadPositionCircle.localPosition.y).ToString();
 
-            if (FeatureChannelTab != null)
-            {
-                for (int i = 0; i < FeatureChannelTab.Length; i++)
-                {
-                    Image TabImage = FeatureChannelTab[i].GetComponent<Image>();
-                    if (TabImage != null) TabImage.color = ((EEGSensorID)i == SelectFeatureSensorID) ? ConnectedColor : new Color(0.098f, 0.102f, 0.110f, 1.0f);
-
-                    LaserPointerInputItem TabInputItem = FeatureChannelTab[i].GetComponent<LaserPointerInputItem>();
-                    if (TabInputItem != null)
-                    {
-                        TabInputItem.SetNormalColor(((EEGSensorID)i == SelectFeatureSensorID) ? ConnectedColor : new Color(0.098f, 0.102f, 0.110f, 1.0f));
-                    }
-                }
-            }
-
             leftActivity.value = Mathf.Lerp((float)leftActivity.value, (float)leftActivity.target, 0.2f);
             rightActivity.value = Mathf.Lerp((float)rightActivity.value, (float)rightActivity.target, 0.2f);
             attention.value = Mathf.Lerp((float)attention.value, (float)attention.target, 0.2f);
@@ -301,29 +288,38 @@ namespace Looxid.Link
             asymmetry.value = Mathf.Lerp((float)asymmetry.value, (float)asymmetry.target, 0.2f);
         }
 
-        public void OnFeatureIndexAF3Button()
+        public void OnFeatureIndexTabClick(int numTab)
         {
-            SelectFeatureSensorID = EEGSensorID.AF3;
+            SetFeautreIndexTab((EEGSensorID)numTab);
         }
-        public void OnFeatureIndexAF4Button()
+        public void OnFeatureIndexTabHoverEnter(int numTab)
         {
-            SelectFeatureSensorID = EEGSensorID.AF4;
+            Image TabImage = FeatureChannelTab[numTab].GetComponent<Image>();
+            if (TabImage != null) TabImage.color = ConnectedColor;
+
+            FeatureChannelTab[numTab].SendMessage("SetNormalColor", ConnectedColor);
         }
-        public void OnFeatureIndexFp1Button()
+        public void OnFeatureIndexTabHoverExit(int numTab)
         {
-            SelectFeatureSensorID = EEGSensorID.Fp1;
+            Image TabImage = FeatureChannelTab[numTab].GetComponent<Image>();
+            if (TabImage != null) TabImage.color = ((EEGSensorID)numTab == SelectFeatureSensorID) ? ConnectedColor : new Color(0.098f, 0.102f, 0.110f, 1.0f);
+
+            FeatureChannelTab[numTab].SendMessage("SetNormalColor", ((EEGSensorID)numTab == SelectFeatureSensorID) ? ConnectedColor : new Color(0.098f, 0.102f, 0.110f, 1.0f));
         }
-        public void OnFeatureIndexFp2Button()
+        public void SetFeautreIndexTab(EEGSensorID sensorID)
         {
-            SelectFeatureSensorID = EEGSensorID.Fp2;
-        }
-        public void OnFeatureIndexAF7Button()
-        {
-            SelectFeatureSensorID = EEGSensorID.AF7;
-        }
-        public void OnFeatureIndexAF8Button()
-        {
-            SelectFeatureSensorID = EEGSensorID.AF8;
+            this.SelectFeatureSensorID = sensorID;
+
+            if (FeatureChannelTab != null)
+            {
+                for (int i = 0; i < FeatureChannelTab.Length; i++)
+                {
+                    Image TabImage = FeatureChannelTab[i].GetComponent<Image>();
+                    if (TabImage != null) TabImage.color = ((EEGSensorID)i == SelectFeatureSensorID) ? ConnectedColor : new Color(0.098f, 0.102f, 0.110f, 1.0f);
+
+                    FeatureChannelTab[i].SendMessage("SetNormalColor", ((EEGSensorID)i == SelectFeatureSensorID) ? ConnectedColor : new Color(0.098f, 0.102f, 0.110f, 1.0f));
+                }
+            }
         }
 
         public double Min(List<double> minList)

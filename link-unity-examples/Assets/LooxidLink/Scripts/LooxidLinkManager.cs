@@ -371,7 +371,7 @@ namespace Looxid.Link
             {
                 if (!noiseSignalMessage)
                 {
-                    networkManager.WriteLog("INFO", "Noise detected");
+                    networkManager.WriteLog("INFO", "Show MessageUI: Noise Signal");
                     if (OnShowNoiseSignalMessage != null) OnShowNoiseSignalMessage.Invoke();
                 }
                 noiseSignalMessage = true;
@@ -380,7 +380,7 @@ namespace Looxid.Link
             {
                 if (!sensorOffMessage)
                 {
-                    networkManager.WriteLog("INFO", "Sensor disconnected");
+                    networkManager.WriteLog("INFO", "Show MessageUI: Sensor Off");
                     if (OnShowSensorOffMessage != null) OnShowSensorOffMessage.Invoke();
                 }
                 sensorOffMessage = true;
@@ -427,7 +427,7 @@ namespace Looxid.Link
             {
                 if (noiseSignalMessage)
                 {
-                    networkManager.WriteLog("INFO", "No noise detected");
+                    networkManager.WriteLog("INFO", "Hide MessageUI: Noise Signal");
                     if (OnHideNoiseSignalMessage != null) OnHideNoiseSignalMessage.Invoke();
                 }
                 noiseSignalMessage = false;
@@ -436,7 +436,7 @@ namespace Looxid.Link
             {
                 if (sensorOffMessage)
                 {
-                    networkManager.WriteLog("INFO", "Sensor connected");
+                    networkManager.WriteLog("INFO", "Hide MessageUI: Sensor Off");
                     if (OnHideSensorOffMessage != null) OnHideSensorOffMessage.Invoke();
                 }
                 sensorOffMessage = false;

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/LooxidLink/Examples/Scenes/2DVisualizer.unity
+    path: Assets/LooxidLink/Examples/Scenes/2DVisualizer_SteamVR.unity
     guid: c20353244dacf9a408b87c8a8554973e
   m_configObjects: {}
