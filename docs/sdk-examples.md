@@ -1,5 +1,9 @@
 # SDK Examples
-By importing `LooxidLink_Unity_SteamVR_Examples.*.*.unitypackage` to your Unity project, you can run some Looxid Link examples. The Unity package file is available to download from [our GitHub repository](https://github.com/LooxidLabs/link-sdk/releases/).
+You can find the Unity package files on [our GitHub repository](https://github.com/LooxidLabs/link-sdk/releases/) for the examples below.
+* If you are using a HTC device, download `LooxidLink_Unity_SteamVR_Examples.*.*.unitypackage`.
+* If you are using an Oculus device, download `LooxidLink_Unity_OculusVR_Examples.*.*.unitypackage`.
+
+After downloading the package file, import it to your Unity project and you will be able to run the examples.
 
 !> These examples require Unity 2019.1 or later.
 
