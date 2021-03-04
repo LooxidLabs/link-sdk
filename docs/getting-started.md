@@ -104,7 +104,7 @@
   - Do not push the slider with excessive force.
 
 ## Installing Looxid Link Core
-1. Click [here](https://looxidlabs.com/looxidlink/product/looxid-link-core/) to download the Looxid Link Core installer.
+1. Click [here](https://looxidlink.looxidlabs.com/product/looxid-link-core/) to download the Looxid Link Core installer.
 2. Once the download has finished, run the installer.
 3. Follow the instructions in the setup wizard.
 ![Follow the instructions in the setup wizard.][core-install-01]
